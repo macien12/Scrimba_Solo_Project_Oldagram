@@ -28,13 +28,23 @@ const posts = [
     }
 ]
 
-let incrementEL = document.getElementById("likesIncrement");
+let incrementEL = document.querySelectorAll(".likesIncrement");
 let likesCount = document.getElementById("likesEl").innerHTML;
 let likesContainer = document.getElementById("likesEl");
-let likes = parseInt(likesCount, 10);
+let cleanStr = likesCount.replaceAll(",", "");
+let likes = parseInt(cleanStr, 10);
 
-incrementEL.addEventListener("click", function() {
-    likes += 1;
-    likesContainer.innerHTML = `${likes} likes`;
-});
+// incrementEL.addEventListener("click", function() {
+//     likes += 1;
+//     likesContainer.innerHTML = `${likes.toLocaleString()} likes`;
+// });
+
+
+incrementEL.forEach(function (incrementEL) {
+    incrementEL.addEventListener("click", function() {
+     likes += 1;
+     likesContainer.innerHTML = `${likes.toLocaleString()} likes`;
+ });
+})
+
 
