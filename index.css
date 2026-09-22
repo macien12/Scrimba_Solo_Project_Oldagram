@@ -4,3 +4,37 @@ html, body {
     font-family: "Roboto", sans-serif;
 }
 
+
+.container{
+    width: 620px;
+    margin: 0 auto;
+}
+
+
+.logoEl{
+    width: 30%;
+
+}
+
+.avatarEl{
+    width: 15%;
+    border-radius: 50%;
+}
+
+.headerEl {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: solid 1px #c4c4c4;
+}
+
+.userNameEl{
+    display: flex;
+}
+
+.nameEl h2{
+    margin: 0;
+}
+
