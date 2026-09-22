@@ -29,10 +29,11 @@ const posts = [
 ]
 
 let incrementEL = document.getElementById("likesIncrement");
-let likes = document.getElementById("likesEl");
+let likesCount = document.getElementById("likesEl");
 let likesContainer = document.getElementById("likesEl");
+let likes = 0;
 
 incrementEL.addEventListener("click", function() {
-    likesContainer.value += 1;
-    likes.innerHTML = likesContainer;
+    likes += 1;
+    likesCount.innerHTML = `${likes} likes`;
 });
