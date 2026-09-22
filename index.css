@@ -6,7 +6,7 @@ html, body {
 
 
 .container{
-    width: 620px;
+    width: 500px;
     margin: 0 auto;
 }
 
@@ -24,7 +24,7 @@ html, body {
 .headerEl {
     display: flex;
     justify-content: space-between;
-    margin-top: 100px;
+    margin-top: 20px;
     margin-bottom: 50px;
     padding-bottom: 30px;
     border-bottom: solid 1px #c4c4c4;
@@ -32,9 +32,29 @@ html, body {
 
 .userNameEl{
     display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
 .nameEl h2{
     margin: 0;
 }
 
+.mainImg{
+    width: 500px;
+    margin-bottom: 25px;
+}
+
+.socialEl{
+    height: 25px;
+}
+
+.mediaIcons{
+    display: flex;
+    flex-direction: row;
+}
+
+.boldEl{
+    font-weight: bold;
+}

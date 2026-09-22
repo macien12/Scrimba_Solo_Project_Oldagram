@@ -28,3 +28,11 @@ const posts = [
     }
 ]
 
+let incrementEL = document.getElementById("likesIncrement");
+let likes = document.getElementById("likesEl");
+let likesContainer = document.getElementById("likesEl");
+
+incrementEL.addEventListener("click", function() {
+    likesContainer.value += 1;
+    likes.textContent = likesContainer;
+})
