@@ -33,18 +33,25 @@ let likesCount = document.getElementById("likesEl").innerHTML;
 let likesContainer = document.getElementById("likesEl");
 let cleanStr = likesCount.replaceAll(",", "");
 let likes = parseInt(cleanStr, 10);
+let renderEl = document.getElementById("mainEl");
 
-// incrementEL.addEventListener("click", function() {
-//     likes += 1;
-//     likesContainer.innerHTML = `${likes.toLocaleString()} likes`;
-// });
-
-
-incrementEL.forEach(function (incrementEL) {
+incrementEL.forEach(incrementEL => {
     incrementEL.addEventListener("click", function() {
-     likes += 1;
-     likesContainer.innerHTML = `${likes.toLocaleString()} likes`;
- });
+    likes += 1;
+    likesContainer.innerHTML = `${likes.toLocaleString()} likes`;
+});
+
 })
 
-
+// Doesnt work sadly dunno how to render JS array in html :(
+renderEl += posts.map(post => `
+                    <section>
+                <div class="container userNameEl">
+                    <img src="${post.avatar}" alt="Avatar of young van Gogh" class="avatarEl">
+                    <div class="nameEl">
+                        <h2>${post.name}</h2>
+                        <p>Zudert, Netherlands</p>
+                    </div>
+                </div>
+            </section>
+    `)
