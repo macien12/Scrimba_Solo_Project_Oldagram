@@ -17,7 +17,7 @@ const posts = [
         comment: "i'm feelin a bit stressed tbh",
         likes: 4
     },
-        {
+    {
         name: "Joseph Ducreux",
         username: "jd1735",
         location: "Paris, France",
@@ -26,32 +26,60 @@ const posts = [
         comment: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
         likes: 152
     }
-]
+];
 
-let incrementEL = document.querySelectorAll(".likesIncrement");
-let likesCount = document.getElementById("likesEl").innerHTML;
-let likesContainer = document.getElementById("likesEl");
-let cleanStr = likesCount.replaceAll(",", "");
-let likes = parseInt(cleanStr, 10);
-let renderEl = document.getElementById("mainEl");
+const renderEl = document.getElementById("mainEl");
 
-incrementEL.forEach(incrementEL => {
-    incrementEL.addEventListener("click", function() {
-    likes += 1;
-    likesContainer.innerHTML = `${likes.toLocaleString()} likes`;
-});
-
-})
-
-// Doesnt work sadly dunno how to render JS array in html :(
-renderEl += posts.map(post => `
-                    <section>
+function render(artists) {
+    let listItems = ""; 
+    for (let i = 0; i < artists.length; i++) {
+        listItems += `
+        <main>
+            <section>
                 <div class="container userNameEl">
-                    <img src="${post.avatar}" alt="Avatar of young van Gogh" class="avatarEl">
+                    <img src="${artists[i].avatar}" alt="Avatar of artist" class="avatarEl">
                     <div class="nameEl">
-                        <h2>${post.name}</h2>
-                        <p>Zudert, Netherlands</p>
+                        <h2>${artists[i].name}</h2>
+                        <p>${artists[i].location}</p>
                     </div>
                 </div>
             </section>
-    `)
+            <section>
+                <div class="container">
+                    <!-- Note the data-index="${i}" on both clickable elements -->
+                    <img src="${artists[i].post}" alt="Portrait of author" class="likesIncrement mainImg" data-index="${i}">
+                    <div id="mediaIcons">
+                        <img src="images/icon-heart.png" alt="Small outline of heart" class="likesIncrement socialEl" data-index="${i}">
+                        <img src="images/icon-comment.png" alt="Small black comunicator icon" class="socialEl">
+                        <img src="images/icon-dm.png" alt="Small black icon of paper plane" class="socialEl">
+                    </div>
+                    <!-- Note the unique id="likes-${i}" -->
+                    <p class="boldEl"><span id="likes-${i}">${artists[i].likes}</span> Likes</p>
+                    <p><span class="boldEl">${artists[i].username}</span> ${artists[i].comment}</p>
+                </div>
+            </section>
+        </main>
+        `;
+    }
+    renderEl.innerHTML = listItems;
+}
+
+render(posts);
+
+renderEl.addEventListener("click", function(event) {
+    if (event.target.classList.contains("likesIncrement")) {
+        // Read index from data-index attribute
+        const index = Number(event.target.dataset.index);
+        
+        if (!isNaN(index) && posts[index]) {
+            // Increment the count in the data array
+            posts[index].likes += 1;
+            
+            // Find and update this exact post's span
+            const countSpan = document.getElementById(`likes-${index}`);
+            if (countSpan) {
+                countSpan.textContent = posts[index].likes.toLocaleString();
+            }
+        } 
+    }
+});
