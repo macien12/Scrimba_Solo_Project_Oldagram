@@ -72,3 +72,25 @@ button, input[type="submit"], input[type="reset"] {
 .buttonEl{
  background-color: red;
 }
+
+main {
+    border-bottom: solid 1px #c4c4c4;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.heartIcon:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.heartIcon:focus,
+.heartIcon:active {
+    transform: scale(0.85);
+    transition: transform 0.08s ease-in-out;
+}
+
+.mainImg:hover {
+    cursor: pointer;
+}

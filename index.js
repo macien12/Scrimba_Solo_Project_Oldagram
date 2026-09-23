@@ -49,7 +49,7 @@ function render(artists) {
                     <!-- Note the data-index="${i}" on both clickable elements -->
                     <img src="${artists[i].post}" alt="Portrait of author" class="likesIncrement mainImg" data-index="${i}">
                     <div id="mediaIcons">
-                        <img src="images/icon-heart.png" alt="Small outline of heart" class="likesIncrement socialEl" data-index="${i}">
+                        <img src="images/icon-heart.png" alt="Small outline of heart" class="likesIncrement socialEl heartIcon" data-index="${i}">
                         <img src="images/icon-comment.png" alt="Small black comunicator icon" class="socialEl">
                         <img src="images/icon-dm.png" alt="Small black icon of paper plane" class="socialEl">
                     </div>
